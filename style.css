@@ -1,0 +1,202 @@
+.slider .fa {
+	cursor: pointer;
+}
+
+.slider .fa.arrow {
+	font-size: 60px;
+    color: #fff;
+    display: block;
+    height: 52px;
+    width: 52px;
+    position: absolute;
+    top: 50%;
+    margin-top: -35px;
+    z-index: 1010;
+}
+
+.slider .fa.arrow.prev {    
+    left: 15px;
+    opacity: 0.2;   
+}
+
+.slider .fa.arrow.next {  
+	right: 15px;  
+    opacity: 0.2;      
+}
+
+.slider .fa.arrow.prev:hover{
+    opacity:1;
+}
+
+.slider .fa.arrow.next:hover{
+    opacity:1;
+}
+
+.slider .thumb-container {
+	position: relative;
+	margin: 0 auto;
+	width: 630px;
+}
+
+.slider .thumbnail-preview {
+	width: 530px;
+    margin: 0 auto;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider .thumb-container .fa.arrow {
+	font-size: 35px;
+    top: 72px;
+    height: 35px;
+    width: 32px;
+}
+
+.slider .thumb-container .fa.arrow.prev {
+	left: 5px;
+}
+
+.slider .thumb-container .fa.arrow.next {
+	right: 5px;
+}
+
+.slider .nav {
+	height: 48px;
+    width: 2000%;
+    z-index: 1001;
+    position: absolute;
+    left: 0;
+    margin-top: 7px;
+}
+
+.slider .nav li {
+    border: 5px solid #AAAAAA;
+	border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    height: 86px;
+    width: 90px;
+    margin: 0 8px;
+    position: relative;
+    background-color: #AAAAAA;    
+}
+
+.slider .nav li.active {
+    border: 5px solid #FFFFFF;
+	background-color: #FFF;
+}
+
+.slider .nav li img {
+    width: 100%;
+    height: 60px;
+}
+
+.slider .nav li .fecha {
+    font-size: 11px;
+	color: #fff;
+	text-align: center;
+	margin-top: 3px;
+}
+
+.slider .nav li.active .fecha {
+    color: #AAA;
+}
+
+.slider .preview {	
+	position: relative;
+	margin: 20px 100px;	
+	z-index: 1001;	
+}
+
+.slider .preview-info {
+	height: 37px;
+}
+
+.slider .preview-info .nombre, .slider .preview-info .fecha, 
+.slider .preview-info .download {
+	color: #fff;
+}
+
+.slider .preview-info .nombre {
+	margin: 0px;
+}
+
+.slider .preview-info .nombre-txt {
+	width:80%;
+}
+
+.slider .preview-info .left {
+	float: left;
+	width: 40%;
+}
+
+.slider .preview-info .right {
+	float: right;
+}
+
+.slider .preview-body {
+    margin: 20px 0px;
+	height: 600px;
+	position: relative;
+}
+
+.slider .preview-body .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slider .preview-footer {
+	text-align: center;
+}
+
+.slider .preview-footer .descripcion {
+	color: #fff;
+}
+
+.slider .preview-footer .description-txt {
+	width: 50%;
+	margin-left: 28px;
+}
+
+.slider-modal {
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 4, 4, 0.7);
+	top: 0;
+    left: 0;
+	z-index: 999;
+}
+
+.slider .edit-field * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.slider .fa-download {
+	margin-right: 10px;
+}
+
+.slider .fa-pencil {
+	margin-left: 10px;
+}
+
+.slider .fa-check {
+	color: #1EC118;
+	font-size: 17px;
+}
+
+.slider .fa-times {
+	color: #CC1126;
+	font-size: 17px;
+}
+
+@media only screen and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+	.slider .preview-body {
+		height: 500px;
+	}
+}

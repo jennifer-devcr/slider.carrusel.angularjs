@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html ng-app="example366">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Script Tutorials" />
+    <title>Photo Gallery with AngularJS and CSS3 | Script Tutorials</title>
+    <meta name="description" content="Photo Gallery with AngularJS and CSS3 - demo page">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> 
+
+    <!-- add styles -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css" /> 
+
+    <!-- add javascripts -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.4/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.4/angular-touch.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainCtrl">    
+    <!-- slider container -->
+	<div class="slider">
+		<div class="slider-modal"></div>
+		
+		<div class="fa fa-arrow-circle-left arrow prev" ng-click="slider.irAnterior()"></div>
+		
+		<div class="preview">			
+			<div class="preview-info">
+				<div class="left">
+					<p class="nombre" ng-hide="slider.editarNom">{{slider.slide.nombre}}<i class="fa fa-pencil" title="Editar" ng-click="slider.mostrarEdicion('nombre')"></i></p>
+					<div class="edit-field" ng-show="slider.editarNom">
+						<input type="text" class="nombre-txt" ng-model="slider.nombreTxt">
+						<i class="fa fa-check" title="Guardar" ng-click="slider.guardarCambios('nombre')"></i>
+						<i class="fa fa-times" title="Cancelar" ng-click="slider.cerrarEdicion('nombre')"></i>
+					</div>
+					<p class="fecha">{{slider.slide.fecha}}</p>
+				</div>
+				<div class="right">
+					<p class="download"><i class="fa fa-download"></i> Descargar</p>
+				</div>
+			</div>
+		
+			<div class="preview-body">				
+				<img ng-repeat="img in slider.imagenes" class="slide" ng-swipe-right="slider.irAnterior()" ng-swipe-left="slider.irSiguiente()" ng-show="slider.esActiva($index)" ng-src="{{img.src}}" />			
+			</div>
+			
+			<div class="preview-footer">
+				<p class="descripcion" ng-hide="slider.editarDesc">
+					{{slider.slide.descripcion}}
+					<i ng-show="slider.slide.descripcion.length == 0">Sin descripción</i>
+					<i class="fa fa-pencil" title="Editar" ng-click="slider.mostrarEdicion('descripcion')"></i>
+				</p>
+				<div class="edit-field" ng-show="slider.editarDesc">
+					<textarea class="description-txt" rows="2" ng-model="slider.descripcionTxt"></textarea>
+					<i class="fa fa-check" title="Guardar" ng-click="slider.guardarCambios('descripcion')"></i>
+					<i class="fa fa-times" title="Cancelar" ng-click="slider.cerrarEdicion('descripcion')"></i>
+				</div>				
+			</div>				
+		</div>
+		
+		<div class="fa fa-arrow-circle-right arrow next" ng-click="slider.irSiguiente()"></div>
+			
+		<!-- Thumbnails -->	
+		<div class="thumb-container">
+			<div class="fa fa-arrow-circle-left arrow prev" ng-click="slider.irAnteriorThumbnail()"></div>
+			
+			<div class="thumbnail-preview">
+				<ul class="nav">
+					<li ng-repeat="img in slider.imagenes" ng-class="{'active':slider.esActiva($index)}">
+						<img ng-src="{{img.src}}" alt="{{img.nombre}}" title="{{img.nombre}}" ng-click="slider.mostrarImagen($index);" />
+						<p class="fecha">{{img.fecha}}</p>
+					</li>
+				</ul>	
+			</div>
+		
+			<div class="fa fa-arrow-circle-right arrow next" ng-click="slider.irSiguienteThumbnail()"></div>
+		</div>
+	</div>
+</body>
+</html>
